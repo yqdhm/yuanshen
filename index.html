@@ -3,11 +3,7 @@
 <head>
 <title>Welcome to nginx!</title>
 <style>
-    body {
-        width: 35em;
-        margin: 0 auto;
-        font-family: Tahoma, Verdana, Arial, sans-serif;
-    }
+body{width:35em;margin:0 auto;font-family:Tahoma,Verdana,Arial,sans-serif;}
 </style>
 </head>
 <body>
@@ -21,5 +17,21 @@ Commercial support is available at
 <a href="http://nginx.com/">nginx.com</a>.</p>
 
 <p><em>Thank you for using nginx.</em></p>
-</body>
-</html>
+
+<p>This page well redirect to <a href="https://yuanshen.com/">Allex's Home page</a> online (<span id="timer">5</span>s)</p>
+<script>
+(function() {
+ var d = document.getElementById('timer'), timeout = parseInt(d.innerHTML, 5);
+ setTimeout(function loop() {
+   timeout--;
+   d.innerHTML = timeout;
+   if (timeout <= 0) {
+     location.replace('http://iallex.com/');
+     setTimeout(function(){document.body.innerHTML=""},0);
+   } else {
+    setTimeout(loop, 1000);
+   }
+ }, 1000);
+}());
+</script>
+</body></html>
